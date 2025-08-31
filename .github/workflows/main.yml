@@ -40,7 +40,7 @@ jobs:
   - name: downloadit
     uses: actions/download-artifact@v4
     with:
-     name: uploadaritfacts
+     name: uploadartifacts
   - name: run cat 
     run: cat first.txt
   
