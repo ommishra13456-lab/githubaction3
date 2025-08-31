@@ -23,7 +23,7 @@ jobs:
     env: 
      name: "chiku"
      password: ${{secrets.PASSWORD}}
-    run: echo " name is $name and password is $PASSWORD"
+    run: echo " name is $name and password is $password"
  jobs3:
   runs-on: ubuntu-latest
   steps:
@@ -32,7 +32,7 @@ jobs:
   - name: uploadit 
     uses: actions/upload-artifact@v4
     with:
-     name: uploadartifact
+     name: uploadartifacts
      path: first.txt
  jobs4:
   runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
   - name: downloadit
     uses: actions/download-artifact@v4
     with:
-     name: uploadaritfact
+     name: uploadaritfacts
   - name: run cat 
     run: cat first.txt
   
