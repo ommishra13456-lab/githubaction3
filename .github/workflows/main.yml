@@ -18,6 +18,7 @@ jobs:
     run: echo "hello world"
  jobs2:
   runs-on: ubuntu-latest
+  needs: jobs1
   steps:
   - name: envandsecrets
     env: 
@@ -26,6 +27,7 @@ jobs:
     run: echo " name is $name and password is $password"
  jobs3:
   runs-on: ubuntu-latest
+  needs: jobs2
   steps:
   - name: uploadartifact
     run: echo "chiku is" > first.txt
@@ -36,6 +38,7 @@ jobs:
      path: first.txt
  jobs4:
   runs-on: ubuntu-latest
+  needs: jobs3
   steps:
   - name: downloadit
     uses: actions/download-artifact@v4
