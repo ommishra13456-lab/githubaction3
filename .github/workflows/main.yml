@@ -46,6 +46,27 @@ jobs:
      name: uploadartifacts
   - name: run cat 
     run: cat first.txt
+ jobs5:
+  runs-on: ubuntu-latest
+  needs: jobs4
+  outputs:
+   username: ${{steps.steps1.outputs.username}}
+   password: ${{steps.steps1.outputs.password}}
+  steps:
+   - id: steps1
+     run: |
+       echo "username=chiku" >> GITHUB_OUTPUT
+       echo  "password=911"  >> GITHUB_OUTPUT
+ jobs6:
+  runs-on: ubuntu-latest
+  steps:
+  - name: outputuse
+    run: |
+     echo "usernameis: ${{needs.jobs5.outputs.username}}"
+     echo "passwordis: ${{needs.job6.outputs.password}}"
+   
+   
+   
   
   
   
